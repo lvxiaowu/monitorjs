@@ -10,11 +10,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-import { ErrorLevelEnum, ErrorCategoryEnum } from "./baseConfig.js";
-import DeviceInfo from "../device";
-import API from "./api.js";
-import utils from "../utils/utils.js";
-import TaskQueue from "./taskQueue.js";
+import { ErrorLevelEnum, ErrorCategoryEnum } from './baseConfig.js';
+import DeviceInfo from '../device';
+import utils from '../utils/utils.js';
+import TaskQueue from './taskQueue.js';
 /**
  * 监控基类
  */
@@ -31,15 +30,15 @@ var BaseMonitor = /*#__PURE__*/function () {
 
     this.level = ErrorLevelEnum.INFO; //错误等级
 
-    this.msg = ""; //错误信息
+    this.msg = ''; //错误信息
 
-    this.url = ""; //错误信息地址
+    this.url = ''; //错误信息地址
 
-    this.line = ""; //行数
+    this.line = ''; //行数
 
-    this.col = ""; //列数
+    this.col = ''; //列数
 
-    this.errorObj = ""; //错误堆栈
+    this.errorObj = ''; //错误堆栈
 
     this.reportUrl = params.reportUrl; //上报错误地址
 
@@ -73,12 +72,12 @@ var BaseMonitor = /*#__PURE__*/function () {
 
 
         if (this.reportUrl && this.url && this.url.toLowerCase().indexOf(this.reportUrl.toLowerCase()) >= 0) {
-          console.log("统计错误接口异常", this.msg);
+          console.log('统计错误接口异常', this.msg);
           return;
         }
 
         var errorInfo = this.handleErrorInfo();
-        console.log("\n````````````````````` " + this.category + " `````````````````````\n", errorInfo); //记录日志
+        console.log('\n````````````````````` ' + this.category + ' `````````````````````\n', errorInfo); //记录日志
 
         TaskQueue.add(this.reportUrl, errorInfo);
       } catch (error) {
@@ -87,34 +86,34 @@ var BaseMonitor = /*#__PURE__*/function () {
     }
     /**
      * 处理错误信息
-     * @param {*} extendsInfo 
+     * @param {*} extendsInfo
      */
 
   }, {
     key: "handleErrorInfo",
     value: function handleErrorInfo() {
-      var txt = "错误类别: " + this.category + "\r\n";
-      txt += "日志信息: " + this.msg + "\r\n";
-      txt += "url: " + encodeURIComponent(this.url) + "\r\n";
+      var txt = '错误类别: ' + this.category + '\r\n';
+      txt += '日志信息: ' + this.msg + '\r\n';
+      txt += 'url: ' + encodeURIComponent(this.url) + '\r\n';
 
       switch (this.category) {
         case ErrorCategoryEnum.JS_ERROR:
-          txt += "错误行号: " + this.line + "\r\n";
-          txt += "错误列号: " + this.col + "\r\n";
+          txt += '错误行号: ' + this.line + '\r\n';
+          txt += '错误列号: ' + this.col + '\r\n';
 
           if (this.errorObj && this.errorObj.stack) {
-            txt += "错误栈: " + this.errorObj.stack + "\r\n";
+            txt += '错误栈: ' + this.errorObj.stack + '\r\n';
           }
 
           break;
 
         default:
-          txt += "其他错误: " + JSON.stringify(this.errorObj) + "\r\n";
+          txt += '其他错误: ' + JSON.stringify(this.errorObj) + '\r\n';
           break;
       }
 
       var deviceInfo = this.getDeviceInfo();
-      txt += "设备信息: " + deviceInfo; //设备信息
+      txt += '设备信息: ' + deviceInfo; //设备信息
 
       var extendsInfo = this.getExtendsInfo();
       var recordInfo = extendsInfo;
@@ -175,7 +174,7 @@ var BaseMonitor = /*#__PURE__*/function () {
         return JSON.stringify(deviceInfo);
       } catch (error) {
         console.log(error);
-        return "";
+        return '';
       }
     }
   }]);

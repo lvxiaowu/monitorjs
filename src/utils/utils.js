@@ -1,11 +1,10 @@
 export default {
-
     type(obj) {
         return Object.prototype.toString.call(obj).replace(/\[object\s|\]/g, '');
     },
 
     isFunction(func) {
-        return this.type(func) === "Function";
+        return this.type(func) === 'Function';
     },
 
     isArray(list) {
@@ -14,7 +13,7 @@ export default {
 
     /**
      * 是否为null
-     * @param {String} str 
+     * @param {String} str
      */
     isNull(str) {
         return str == undefined || str == '' || str == null;
@@ -22,17 +21,17 @@ export default {
 
     /**
      * 对象是否为空
-     * @param {*} obj 
+     * @param {*} obj
      */
     objectIsNull(obj) {
-        return JSON.stringify(obj) === "{}";
+        return JSON.stringify(obj) === '{}';
     },
 
     /**
      * 是否是对象
-     * @param {*} obj 
+     * @param {*} obj
      */
-    isObject(obj){
-        return this.type(obj) === "Object";
+    isObject(obj) {
+        return this.type(obj) === 'Object';
     }
-}
+};

@@ -5,7 +5,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 import { AjaxError, ConsoleError, JsError, PromiseError, ResourceError, VueError } from './error';
-import { AjaxLibEnum } from "./base/baseConfig.js";
+import { AjaxLibEnum } from './base/baseConfig.js';
 import MonitorPerformance from './performance';
 import MonitorNetworkSpeed from './performance/networkSpeed';
 import './utils/extends';
@@ -24,7 +24,7 @@ var MonitorJS = /*#__PURE__*/function () {
   }
   /**
    * 处理异常信息初始化
-   * @param {*} options 
+   * @param {*} options
    */
 
 
@@ -86,8 +86,8 @@ var MonitorJS = /*#__PURE__*/function () {
         new MonitorPerformance(options).record();
       };
 
-      window.removeEventListener("unload", recordFunc);
-      window.addEventListener("unload", recordFunc);
+      window.removeEventListener('unload', recordFunc);
+      window.addEventListener('unload', recordFunc);
     }
   }]);
 

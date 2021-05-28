@@ -20,8 +20,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-import BaseMonitor from "../base/baseMonitor.js";
-import { ErrorCategoryEnum, ErrorLevelEnum } from "../base/baseConfig.js";
+import BaseMonitor from '../base/baseMonitor.js';
+import { ErrorCategoryEnum, ErrorLevelEnum } from '../base/baseConfig.js';
 /**
  * vue错误
  */
@@ -69,7 +69,7 @@ var VueError = /*#__PURE__*/function (_BaseMonitor) {
 
           _this.recordError();
         } catch (error) {
-          console.log("vue错误异常", error);
+          console.log('vue错误异常', error);
         }
       };
     }

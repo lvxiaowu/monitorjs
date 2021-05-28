@@ -1,14 +1,13 @@
 {
     "name": "@sd/monitor",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "前端异常监控、vue异常监控、js异常监控、页面性能监控、设备信息采集",
     "main": "es/index.js",
     "module": "es/index.js",
     "typings": "lib/index.d.ts",
     "scripts": {
-        "build": "father-build build",
-        "prepare": "npm run build",
-        "publish": "npm publish --registry http://npm.shandiantech.com"
+        "build": "node script/build",
+        "release": "node script/release"
     },
     "files": ["es", "lib"],
     "browserslist": {
@@ -18,7 +17,6 @@
     "author": "lvxiaowu",
     "license": "ISC",
     "devDependencies": {
-        "vue": "^2.6.10",
         "@babel/core": "7.14.0",
         "@babel/eslint-parser": "7.13.14",
         "@babel/plugin-proposal-class-properties": "7.13.0",
@@ -26,7 +24,10 @@
         "@babel/preset-env": "7.14.1",
         "@babel/preset-react": "7.13.13",
         "@babel/preset-typescript": "7.13.0",
+        "chalk": "^4.1.1",
         "father-build": "^1.19.3",
+        "shelljs": "^0.8.4",
+        "vue": "^2.6.10",
         "webpack": "5.37.0",
         "webpack-dev-server": "3.11.2",
         "webpack-merge": "5.7.3",

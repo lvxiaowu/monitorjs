@@ -1,4 +1,4 @@
-import MonitorJS from "./monitorjs.js";
-export { MonitorJS }
+import MonitorJS from './monitorjs.js';
+export { MonitorJS };
 
-window.MonitorJS = MonitorJS ;
+window.MonitorJS = MonitorJS;

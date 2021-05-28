@@ -26,9 +26,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-import BaseMonitor from "../base/baseMonitor";
-import { ErrorLevelEnum, ErrorCategoryEnum } from "../base/baseConfig.js";
-import API from "../base/api";
+import BaseMonitor from '../base/baseMonitor';
+import { ErrorLevelEnum, ErrorCategoryEnum } from '../base/baseConfig.js';
+import API from '../base/api';
 /**
  * 粗略检测网速
  */
@@ -45,13 +45,13 @@ var MonitorNetworkSpeed = /*#__PURE__*/function (_BaseMonitor) {
 
     _this = _super.call(this, options || {});
     _this.downloadSize = 241797;
-    _this.filePath = "https://file.40017.cn/tcservice/common/imags/network_speed.png";
+    _this.filePath = 'https://static-venus.shandiantech.com/skio/20210528/1622170352180_chromePerformance1.png';
     _this.startTime = 0;
     _this.endTime = 0;
     _this.timeInterval = 60 * 1000;
     _this.category = ErrorCategoryEnum.NETWORK_SPEED;
-    _this.pageId = options.pageId || "";
-    _this.url = options.url || "";
+    _this.pageId = options.pageId || '';
+    _this.url = options.url || '';
     return _this;
   }
   /**
@@ -114,7 +114,7 @@ var MonitorNetworkSpeed = /*#__PURE__*/function (_BaseMonitor) {
               category: _this3.category,
               logType: ErrorLevelEnum.INFO,
               logInfo: JSON.stringify({
-                curTime: new Date().format("yyyy-MM-dd HH:mm:ss"),
+                curTime: new Date().format('yyyy-MM-dd HH:mm:ss'),
                 pageId: _this3.pageId,
                 networkSpeed: speed,
                 deviceInfo: _this3.getDeviceInfo()
@@ -126,10 +126,10 @@ var MonitorNetworkSpeed = /*#__PURE__*/function (_BaseMonitor) {
           }
         };
 
-        xhr.open("GET", this.filePath + "?rand=" + Math.random(), true);
+        xhr.open('GET', this.filePath + '?rand=' + Math.random(), true);
         xhr.send();
       } catch (error) {
-        console.log("测试失败：", error);
+        console.log('测试失败：', error);
       }
     }
     /**
@@ -150,7 +150,7 @@ var MonitorNetworkSpeed = /*#__PURE__*/function (_BaseMonitor) {
       };
 
       this.startTime = this.now();
-      img.src = this.filePath + "?rand=" + this.startTime;
+      img.src = this.filePath + '?rand=' + this.startTime;
     }
     /**
      * 计算速度

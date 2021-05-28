@@ -55,7 +55,7 @@ var pagePerformance = {
     usefulType = usefulType || [];
 
     if (!window.performance || !window.performance.getEntries) {
-      console.log("该浏览器不支持performance.getEntries方法");
+      console.log('该浏览器不支持performance.getEntries方法');
       return;
     }
 

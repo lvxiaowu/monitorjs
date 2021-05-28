@@ -29,11 +29,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 /**
  * 监控工具
  */
-import pagePerformance from "./performance.js";
-import DeviceInfo from "../device";
-import BaseMonitor from "../base/baseMonitor";
-import { ErrorLevelEnum, ErrorCategoryEnum } from "../base/baseConfig.js";
-import API from "../base/api.js";
+import pagePerformance from './performance.js';
+import BaseMonitor from '../base/baseMonitor';
+import { ErrorLevelEnum, ErrorCategoryEnum } from '../base/baseConfig.js';
+import API from '../base/api.js';
 
 var MonitorPerformance = /*#__PURE__*/function (_BaseMonitor) {
   _inherits(MonitorPerformance, _BaseMonitor);
@@ -61,13 +60,13 @@ var MonitorPerformance = /*#__PURE__*/function (_BaseMonitor) {
 
     };
     _this.category = ErrorCategoryEnum.PERFORMANCE;
-    _this.pageId = options.pageId || "";
-    _this.url = options.url || "";
+    _this.pageId = options.pageId || '';
+    _this.url = options.url || '';
     return _this;
   }
   /**
    * 获取需要上报资源数据类型
-   * @param {*} options 
+   * @param {*} options
    */
 
 
@@ -108,7 +107,7 @@ var MonitorPerformance = /*#__PURE__*/function (_BaseMonitor) {
         }
 
         var result = {
-          curTime: new Date().format("yyyy-MM-dd HH:mm:ss"),
+          curTime: new Date().format('yyyy-MM-dd HH:mm:ss'),
           performance: this.config.performance,
           resourceList: this.config.resourceList,
           markUser: this.markUser(),
@@ -124,13 +123,13 @@ var MonitorPerformance = /*#__PURE__*/function (_BaseMonitor) {
           logInfo: JSON.stringify(result)
         });
 
-        console.log("report data =", data);
-        localStorage.setItem("page_performance", JSON.stringify(data)); //发送监控数据
+        console.log('report data =', data);
+        localStorage.setItem('page_performance', JSON.stringify(data)); //发送监控数据
 
         new API(this.url).report(data, true);
         this.clearPerformance();
       } catch (error) {
-        console.log("性能信息上报异常", error);
+        console.log('性能信息上报异常', error);
       }
     }
   }, {
@@ -173,7 +172,7 @@ var MonitorPerformance = /*#__PURE__*/function (_BaseMonitor) {
       var date = new Date();
       var psMarkUv = localStorage.getItem('ps_markUv') || '';
       var datatime = localStorage.getItem('ps_markUvTime') || '';
-      var today = date.format("yyyy/MM/dd 23:59:59");
+      var today = date.format('yyyy/MM/dd 23:59:59');
 
       if (!psMarkUv && !datatime || date.getTime() > datatime * 1) {
         psMarkUv = this.randomString();

@@ -2,18 +2,17 @@
  * 页面监控
  */
 const pagePerformance = {
-
     getTiming() {
         try {
-            if(!window.performance || !window.performance.timing){
+            if (!window.performance || !window.performance.timing) {
                 console.log('你的浏览器不支持 performance 操作');
                 return;
             }
             var t = window.performance.timing;
             var times = {};
             var loadTime = t.loadEventEnd - t.loadEventStart;
-            if(loadTime < 0) {
-                setTimeout(function(){
+            if (loadTime < 0) {
+                setTimeout(function () {
                     pagePerformance.getTiming();
                 }, 200);
                 return;
@@ -44,32 +43,31 @@ const pagePerformance = {
             //【重要】页面加载完成的时间
             //【原因】这几乎代表了用户等待页面可用的时间
             times.loadPageTime = (t.loadEventEnd - t.navigationStart).toFixed(2);
-            
+
             return times;
-            
-        } catch(e) {
-            console.log(e)
+        } catch (e) {
+            console.log(e);
         }
     },
 
-    getEntries(usefulType){
+    getEntries(usefulType) {
         usefulType = usefulType || [];
-        if(!window.performance || !window.performance.getEntries){
-            console.log("该浏览器不支持performance.getEntries方法");
+        if (!window.performance || !window.performance.getEntries) {
+            console.log('该浏览器不支持performance.getEntries方法');
             return;
         }
         let entryTimesList = [];
         let entryList = window.performance.getEntries();
-        if(!entryList || entryList.length==0){
+        if (!entryList || entryList.length == 0) {
             return entryTimesList;
         }
-        entryList.forEach((item,index)=>{
+        entryList.forEach((item, index) => {
             let templeObj = {};
-            if(usefulType.indexOf(item.initiatorType)>-1){
+            if (usefulType.indexOf(item.initiatorType) > -1) {
                 //请求资源路径
                 templeObj.name = item.name;
                 //发起资源类型
-                templeObj.initiatorType= item.initiatorType;
+                templeObj.initiatorType = item.initiatorType;
                 //http协议版本
                 templeObj.nextHopProtocol = item.nextHopProtocol;
                 //重定向时间
@@ -88,8 +86,7 @@ const pagePerformance = {
             }
         });
         return entryTimesList;
-    },
-
+    }
 };
 
 export default pagePerformance;

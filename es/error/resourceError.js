@@ -20,8 +20,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-import BaseMonitor from "../base/baseMonitor.js";
-import { ErrorCategoryEnum, ErrorLevelEnum } from "../base/baseConfig.js";
+import BaseMonitor from '../base/baseMonitor.js';
+import { ErrorCategoryEnum, ErrorLevelEnum } from '../base/baseConfig.js';
 /**
  * 资源加载错误
  */
@@ -61,13 +61,13 @@ var ResourceError = /*#__PURE__*/function (_BaseMonitor) {
           }
 
           _this.level = target.tagName.toUpperCase() === 'IMG' ? ErrorLevelEnum.WARN : ErrorLevelEnum.ERROR;
-          _this.msg = "加载 " + target.tagName + " 资源错误";
+          _this.msg = '加载 ' + target.tagName + ' 资源错误';
           _this.url = target.src || target.href;
           _this.errorObj = target;
 
           _this.recordError();
         } catch (error) {
-          console.log("资源加载收集异常", error);
+          console.log('资源加载收集异常', error);
         }
       }, true);
     }
