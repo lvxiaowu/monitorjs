@@ -11,8 +11,7 @@ class MonitorJS {
         resourceError = true,
         ajaxError = true,
         consoleError = false, //console.error默认不处理
-        vueError = false,
-        ...rest
+        vueError = false
     }) {
         this.jsError = jsError;
         this.promiseError = promiseError;
@@ -20,7 +19,6 @@ class MonitorJS {
         this.ajaxError = ajaxError;
         this.consoleError = consoleError;
         this.vueError = vueError;
-        this.init(rest);
     }
 
     /**

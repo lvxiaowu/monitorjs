@@ -57,6 +57,7 @@ new MonitorJS({
     ajaxError : true,
     consoleError : false, //console.error默认不处理
     vueError : false,
+}).init({
     url:"", //错误上报地址
     extendsInfo:{ //自定义扩展信息，一般用于数据持久化区分
         a:"", //自定义信息a（名称可自定义）
