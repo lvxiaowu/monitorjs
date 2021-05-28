@@ -64,7 +64,8 @@ class XHRError extends BaseMonitor {
         let xhrSend = XMLHttpRequest.prototype.send;
         let _handleEvent = (event) => {
             try {
-                if (event && event.currentTarget && event.currentTarget.status !== 200) {
+                // 401 未登录
+                if (event && event.currentTarget && ![200, 401].includes(event.currentTarget.status)) {
                     this.level = ErrorLevelEnum.WARN;
                     this.category = ErrorCategoryEnum.AJAX_ERROR;
                     this.msg = event.target.response;

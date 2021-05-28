@@ -50,7 +50,7 @@ class BaseMonitor {
             }
             let errorInfo = this.handleErrorInfo();
 
-            console.log('\n````````````````````` ' + this.category + ' `````````````````````\n', errorInfo);
+            // console.log('\n````````````````````` ' + this.category + ' `````````````````````\n', errorInfo);
 
             //记录日志
             TaskQueue.add(this.reportUrl, errorInfo);
@@ -80,7 +80,6 @@ class BaseMonitor {
                 break;
         }
         let deviceInfo = this.getDeviceInfo();
-        txt += '设备信息: ' + deviceInfo; //设备信息
         let extendsInfo = this.getExtendsInfo();
         let recordInfo = extendsInfo;
         recordInfo.category = this.category; //错误分类

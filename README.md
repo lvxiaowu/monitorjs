@@ -50,19 +50,20 @@ const MonitorJS = require("@sd/monitor");
 ### 6、异常监控Usage
 ```
 1）异常监控初始化代码：
-new MonitorJS().init({
+new MonitorJS({
+    jsError: true,
+    promiseError : true,
+    resourceError : true,
+    ajaxError : true,
+    consoleError : false, //console.error默认不处理
+    vueError : false,
     url:"", //错误上报地址
-    consoleError:true, //配置是否需要记录console.error错误信息
-    vueError:true, //配置是否需要记录vue错误信息
-    vue:Vue, //如需监控vue错误信息，则需要传入vue
     extendsInfo:{ //自定义扩展信息，一般用于数据持久化区分
-        a:"", //自定义信息a（名称可自定义）可参考测试栗子 module
-        b:"", //自定义信息b（名称可自定义）
-        getDynamic:()=>{  //获取动态传参  1.4.5版本及以后支持该方式
-            
+        a:"", //自定义信息a（名称可自定义）
+        getDynamic:()=>{  //获取动态传参  
         }
     }
-});
+})
 
 2）参数说明：
 {
@@ -75,9 +76,8 @@ new MonitorJS().init({
     vueError ：配置是否需要记录vue错误信息 （默认false）
     vue ： 如需监控vue错误信息，则需要传入vue
     extendsInfo : { //自定义扩展信息，一般用于数据持久化区分
-        a:"", //自定义信息a（名称可自定义）可参考测试栗子 module
-        b:"", //自定义信息b（名称可自定义）
-        getDynamic:()=>{  //获取动态传参  1.4.5版本及以后支持该方式
+        a:"", //自定义信息a（名称可自定义）
+        getDynamic:()=>{  //获取动态传参  
             
         }
     }
