@@ -5,7 +5,7 @@ import MonitorNetworkSpeed from './performance/networkSpeed';
 import './utils/extends';
 
 class MonitorJS {
-    constructor() {
+    constructor(options = {}) {
         this.jsError = true;
         this.promiseError = true;
         this.resourceError = true;
