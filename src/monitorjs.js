@@ -2,7 +2,6 @@ import { AjaxError, ConsoleError, JsError, PromiseError, ResourceError, VueError
 import { AjaxLibEnum } from './base/baseConfig.js';
 import MonitorPerformance from './performance';
 import MonitorNetworkSpeed from './performance/networkSpeed';
-import pkg from './packages.json';
 import './utils/extends';
 
 class MonitorJS {
@@ -66,6 +65,6 @@ class MonitorJS {
     }
 }
 
-MonitorJS.version = pkg.version;
+MonitorJS.version = require('./package.json').version;
 
 export default MonitorJS;
