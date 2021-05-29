@@ -65,6 +65,6 @@ class MonitorJS {
     }
 }
 
-MonitorJS.version = require('./package.json').version;
+MonitorJS.version = require('../package.json').version;
 
 export default MonitorJS;
