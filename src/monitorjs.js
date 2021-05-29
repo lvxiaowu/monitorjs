@@ -22,13 +22,6 @@ class MonitorJS {
         this.vueError = vueError;
     }
 
-    version() {
-        return {
-            name: pkg.name,
-            version: pkg.version
-        };
-    }
-
     /**
      * 处理异常信息初始化
      * @param {*} options
@@ -72,5 +65,7 @@ class MonitorJS {
         window.addEventListener('unload', recordFunc);
     }
 }
+
+MonitorJS.version = pkg.version;
 
 export default MonitorJS;

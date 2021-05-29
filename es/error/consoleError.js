@@ -32,8 +32,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-import BaseMonitor from "../base/baseMonitor.js";
-import { ErrorCategoryEnum, ErrorLevelEnum } from "../base/baseConfig.js";
+import BaseMonitor from '../base/baseMonitor.js';
+import { ErrorCategoryEnum, ErrorLevelEnum } from '../base/baseConfig.js';
 /**
  * console.error异常
  */
@@ -111,14 +111,14 @@ var ConsoleError = /*#__PURE__*/function (_BaseMonitor) {
 
         var params = _toConsumableArray(args);
 
-        this.msg = params.join("\r\n"); //换行符分割
+        this.msg = params.join('\r\n'); //换行符分割
 
         this.url = location.href; //当前地址
 
         this.category = category;
         this.recordError();
       } catch (error) {
-        console.log("console统计错误异常", level, error);
+        console.log('console统计错误异常', level, error);
       }
     }
   }]);
@@ -131,7 +131,7 @@ var ConsoleError = /*#__PURE__*/function (_BaseMonitor) {
 
 
 (function () {
-  //创建空console对象，避免JS报错  
+  //创建空console对象，避免JS报错
   if (!window.console) {
     window.console = {};
   }

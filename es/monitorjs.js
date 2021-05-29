@@ -8,19 +8,32 @@ import { AjaxError, ConsoleError, JsError, PromiseError, ResourceError, VueError
 import { AjaxLibEnum } from './base/baseConfig.js';
 import MonitorPerformance from './performance';
 import MonitorNetworkSpeed from './performance/networkSpeed';
+import pkg from './packages.json';
 import './utils/extends';
 
 var MonitorJS = /*#__PURE__*/function () {
-  function MonitorJS() {
+  function MonitorJS(_ref) {
+    var _ref$jsError = _ref.jsError,
+        jsError = _ref$jsError === void 0 ? true : _ref$jsError,
+        _ref$promiseError = _ref.promiseError,
+        promiseError = _ref$promiseError === void 0 ? true : _ref$promiseError,
+        _ref$resourceError = _ref.resourceError,
+        resourceError = _ref$resourceError === void 0 ? true : _ref$resourceError,
+        _ref$ajaxError = _ref.ajaxError,
+        ajaxError = _ref$ajaxError === void 0 ? true : _ref$ajaxError,
+        _ref$consoleError = _ref.consoleError,
+        consoleError = _ref$consoleError === void 0 ? false : _ref$consoleError,
+        _ref$vueError = _ref.vueError,
+        vueError = _ref$vueError === void 0 ? false : _ref$vueError;
+
     _classCallCheck(this, MonitorJS);
 
-    this.jsError = true;
-    this.promiseError = true;
-    this.resourceError = true;
-    this.ajaxError = true;
-    this.consoleError = false; //console.error默认不处理
-
-    this.vueError = false;
+    this.jsError = jsError;
+    this.promiseError = promiseError;
+    this.resourceError = resourceError;
+    this.ajaxError = ajaxError;
+    this.consoleError = consoleError;
+    this.vueError = vueError;
   }
   /**
    * 处理异常信息初始化
@@ -32,12 +45,6 @@ var MonitorJS = /*#__PURE__*/function () {
     key: "init",
     value: function init(options) {
       options = options || {};
-      this.jsError = options.jsError || this.jsError;
-      this.promiseError = options.promiseError || this.promiseError;
-      this.resourceError = options.resourceError || this.resourceError;
-      this.ajaxError = options.ajaxError || this.ajaxError;
-      this.consoleError = options.consoleError || this.consoleError;
-      this.vueError = options.vueError || this.vueError;
       var reportUrl = options.url; //上报错误地址
 
       var extendsInfo = options.extendsInfo || {}; //扩展信息（一般用于系统个性化分析）
@@ -73,7 +80,7 @@ var MonitorJS = /*#__PURE__*/function () {
     }
     /**
      * 监听页面性能
-     * @param {*} options {pageId：页面标示,url：上报地址}
+     * @param {*} options {pageId：页面标识,url：上报地址}
      */
 
   }, {
@@ -94,4 +101,5 @@ var MonitorJS = /*#__PURE__*/function () {
   return MonitorJS;
 }();
 
+MonitorJS.version = pkg.version;
 export default MonitorJS;

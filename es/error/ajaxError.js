@@ -122,7 +122,8 @@ var XHRError = /*#__PURE__*/function (_BaseMonitor2) {
 
       var _handleEvent = function _handleEvent(event) {
         try {
-          if (event && event.currentTarget && event.currentTarget.status !== 200) {
+          // 401 未登录
+          if (event && event.currentTarget && ![200, 401].includes(event.currentTarget.status)) {
             _this.level = ErrorLevelEnum.WARN;
             _this.category = ErrorCategoryEnum.AJAX_ERROR;
             _this.msg = event.target.response;

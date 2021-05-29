@@ -76,8 +76,8 @@ var BaseMonitor = /*#__PURE__*/function () {
           return;
         }
 
-        var errorInfo = this.handleErrorInfo();
-        console.log('\n````````````````````` ' + this.category + ' `````````````````````\n', errorInfo); //记录日志
+        var errorInfo = this.handleErrorInfo(); // console.log('\n````````````````````` ' + this.category + ' `````````````````````\n', errorInfo);
+        //记录日志
 
         TaskQueue.add(this.reportUrl, errorInfo);
       } catch (error) {
@@ -113,8 +113,6 @@ var BaseMonitor = /*#__PURE__*/function () {
       }
 
       var deviceInfo = this.getDeviceInfo();
-      txt += '设备信息: ' + deviceInfo; //设备信息
-
       var extendsInfo = this.getExtendsInfo();
       var recordInfo = extendsInfo;
       recordInfo.category = this.category; //错误分类
