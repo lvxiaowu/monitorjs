@@ -5,30 +5,30 @@ import MonitorNetworkSpeed from './performance/networkSpeed';
 import './utils/extends';
 
 class MonitorJS {
-    constructor(
-        { jsError, promiseError, resourceError, ajaxError, consoleError, vueError } = {
+    constructor() {}
+
+    /**
+     * 处理异常信息初始化
+     * @param {*} options
+     */
+    init(opt) {
+        const defaultOpt = {
             jsError: true,
             promiseError: true,
             resourceError: true,
             ajaxError: true,
             consoleError: false, //console.error默认不处理
             vueError: false
-        }
-    ) {
-        this.jsError = jsError;
-        this.promiseError = promiseError;
-        this.resourceError = resourceError;
-        this.ajaxError = ajaxError;
-        this.consoleError = consoleError;
-        this.vueError = vueError;
-    }
+        };
+        const options = Object.assign({}, defaultOpt, opt || {});
 
-    /**
-     * 处理异常信息初始化
-     * @param {*} options
-     */
-    init(options) {
-        options = options || {};
+        this.jsError = options.jsError;
+        this.promiseError = options.promiseError;
+        this.resourceError = options.resourceError;
+        this.ajaxError = options.ajaxError;
+        this.consoleError = options.consoleError;
+        this.vueError = options.vueError;
+
         let reportUrl = options.url; //上报错误地址
         let extendsInfo = options.extendsInfo || {}; //扩展信息（一般用于系统个性化分析）
         let param = { reportUrl, extendsInfo };
