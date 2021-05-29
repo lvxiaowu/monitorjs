@@ -2,6 +2,7 @@ import { AjaxError, ConsoleError, JsError, PromiseError, ResourceError, VueError
 import { AjaxLibEnum } from './base/baseConfig.js';
 import MonitorPerformance from './performance';
 import MonitorNetworkSpeed from './performance/networkSpeed';
+import pkg from './packages.json';
 import './utils/extends';
 
 class MonitorJS {
@@ -19,6 +20,13 @@ class MonitorJS {
         this.ajaxError = ajaxError;
         this.consoleError = consoleError;
         this.vueError = vueError;
+    }
+
+    version() {
+        return {
+            name: pkg.name,
+            version: pkg.version
+        };
     }
 
     /**
