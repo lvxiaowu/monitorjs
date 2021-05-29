@@ -8,7 +8,6 @@ import { AjaxError, ConsoleError, JsError, PromiseError, ResourceError, VueError
 import { AjaxLibEnum } from './base/baseConfig.js';
 import MonitorPerformance from './performance';
 import MonitorNetworkSpeed from './performance/networkSpeed';
-import pkg from './packages.json';
 import './utils/extends';
 
 var MonitorJS = /*#__PURE__*/function () {
@@ -101,5 +100,4 @@ var MonitorJS = /*#__PURE__*/function () {
   return MonitorJS;
 }();
 
-MonitorJS.version = pkg.version;
 export default MonitorJS;

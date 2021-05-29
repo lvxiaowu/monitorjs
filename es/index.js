@@ -1,3 +1,3 @@
 import MonitorJS from './monitorjs.js';
-export default MonitorJS;
+export { MonitorJS };
 window.MonitorJS = MonitorJS;
