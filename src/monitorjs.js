@@ -5,14 +5,16 @@ import MonitorNetworkSpeed from './performance/networkSpeed';
 import './utils/extends';
 
 class MonitorJS {
-    constructor({
-        jsError = true,
-        promiseError = true,
-        resourceError = true,
-        ajaxError = true,
-        consoleError = false, //console.error默认不处理
-        vueError = false
-    }) {
+    constructor(
+        { jsError, promiseError, resourceError, ajaxError, consoleError, vueError } = {
+            jsError: true,
+            promiseError: true,
+            resourceError: true,
+            ajaxError: true,
+            consoleError: false, //console.error默认不处理
+            vueError: false
+        }
+    ) {
         this.jsError = jsError;
         this.promiseError = promiseError;
         this.resourceError = resourceError;
@@ -64,5 +66,6 @@ class MonitorJS {
         window.addEventListener('unload', recordFunc);
     }
 }
+MonitorJS.version = require('../package.json').version;
 
 export default MonitorJS;
