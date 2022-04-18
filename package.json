@@ -9,10 +9,20 @@
         "build": "node script/build",
         "release": "node script/release"
     },
-    "files": ["es", "lib"],
+    "files": [
+        "es",
+        "lib"
+    ],
     "browserslist": {
-        "production": ["last 2 versions", "> 1%"],
-        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+        "production": [
+            "last 2 versions",
+            "> 1%"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     },
     "author": "lvxiaowu",
     "license": "ISC",
@@ -26,6 +36,10 @@
         "@babel/preset-typescript": "7.13.0",
         "chalk": "^4.1.1",
         "father-build": "^1.19.3",
+        "koa": "^2.13.4",
+        "koa-compress": "^5.1.0",
+        "koa-router": "^10.1.1",
+        "koa-static-cache": "^5.1.4",
         "shelljs": "^0.8.4",
         "vue": "^2.6.10",
         "webpack": "5.37.0",
