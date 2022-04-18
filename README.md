@@ -1,5 +1,6 @@
 ### 1、简介
-@sd/monitor 是一款前端监控工具，主要包含下面几个方面信息监控：
+`@lvxiaowu/monitor` 是一款前端监控工具，主要包含下面几个方面信息监控：
+
 * 1）前端异常监控；
 * 2）页面性能监控；
 * 3）设备信息采集；
@@ -40,10 +41,10 @@
 ### 5、引入方式
 ```
 1、支持es6方式引入
-import { MonitorJS } from "@sd/monitor";
+import { MonitorJS } from "@lvxiaowu/monitor";
 
 2、支持commonjs方式引入
-const MonitorJS = require("@sd/monitor");
+const MonitorJS = require("@lvxiaowu/monitor");
 
 ```
 

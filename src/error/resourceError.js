@@ -2,6 +2,8 @@ import BaseMonitor from '../base/baseMonitor.js';
 import { ErrorCategoryEnum, ErrorLevelEnum } from '../base/baseConfig.js';
 /**
  * 资源加载错误
+ *
+ * 相比window.onerror，通过window.addEventListener的方式我们可以捕获资源加载的错误。
  */
 class ResourceError extends BaseMonitor {
     constructor(params) {

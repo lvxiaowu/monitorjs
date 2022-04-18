@@ -142,6 +142,7 @@ var XHRError = /*#__PURE__*/function (_BaseMonitor2) {
 
       XMLHttpRequest.prototype.send = function () {
         if (this.addEventListener) {
+          // load 事件表示服务器传来的数据接收完毕，error 事件表示请求出错，abort 事件表示请求被中断（比如用户取消请求）
           this.addEventListener('error', _handleEvent);
           this.addEventListener('load', _handleEvent);
           this.addEventListener('abort', _handleEvent);
@@ -149,7 +150,7 @@ var XHRError = /*#__PURE__*/function (_BaseMonitor2) {
           var tempStateChange = this.onreadystatechange;
 
           this.onreadystatechange = function (event) {
-            tempStateChange.apply(this, arguments);
+            tempStateChange.apply(this, arguments); // 响应已完成
 
             if (this.readyState === 4) {
               _handleEvent(event);

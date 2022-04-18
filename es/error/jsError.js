@@ -20,10 +20,17 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-import BaseMonitor from "../base/baseMonitor.js";
-import { ErrorCategoryEnum, ErrorLevelEnum } from "../base/baseConfig.js";
+import BaseMonitor from '../base/baseMonitor.js';
+import { ErrorCategoryEnum, ErrorLevelEnum } from '../base/baseConfig.js';
 /**
  * 捕获JS错误
+ *
+ * 能捕获所有同步执行错误
+ * 不能捕获语法错误。
+ * 能捕获普通异步任务错误。
+ * 不能捕获Promise任务错误。
+ * 不能捕获async任务错误。
+ * 不能捕获资源加载错误。
  */
 
 var JSError = /*#__PURE__*/function (_BaseMonitor) {
@@ -58,7 +65,7 @@ var JSError = /*#__PURE__*/function (_BaseMonitor) {
 
           _this.recordError();
         } catch (error) {
-          console.log("js错误异常", error);
+          console.log('js错误异常', error);
         }
       };
     }
