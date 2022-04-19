@@ -1,0 +1,29 @@
+{
+  "name": "demo",
+  "private": true,
+  "scripts": {
+    "start": "admin start",
+    "build": "admin build"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 versions",
+      "> 1%"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@lvxiaowu/admin": "2.0.0",
+    "@lvxiaowu/utils": "1.3.0",
+    "mobx": "6.3.2",
+    "mobx-react-lite": "3.2.0"
+  },
+  "devDependencies": {
+    "@lvxiaowu/monitor": "^1.0.1"
+  },
+  "author": "1518709980@qq.com"
+}

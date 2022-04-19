@@ -1343,6 +1343,11 @@
   dependencies:
     npmlog "^4.1.2"
 
+"@lvxiaowu/monitor@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@lvxiaowu/monitor/-/monitor-1.0.1.tgz#bff77df0c3dbc25c869ac022ead07490da074b76"
+  integrity sha512-m6samRBieAwtaRlAtwFU2jYXz1MB1aKy/OYtHJLWHsOkrmc227H5+KhEYx51wTNaZJn+cY+00j8XRlkj3VLcFA==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "http://npm.shandiantech.com/@mrmlnc%2freaddir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

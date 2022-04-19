@@ -9,20 +9,10 @@
         "build": "node script/build",
         "release": "bash script/release.sh"
     },
-    "files": [
-        "es",
-        "lib"
-    ],
+    "files": ["es", "lib"],
     "browserslist": {
-        "production": [
-            "last 2 versions",
-            "> 1%"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": ["last 2 versions", "> 1%"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     },
     "author": "lvxiaowu",
     "license": "ISC",
@@ -46,5 +36,6 @@
         "webpack-dev-server": "3.11.2",
         "webpack-merge": "5.7.3",
         "webpackbar": "5.0.0-3"
-    }
+    },
+    "dependencies": {}
 }
